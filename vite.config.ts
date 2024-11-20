@@ -10,5 +10,13 @@ export default defineConfig({
             include: '**/*.svg?react',
         }),
     ],
-    base: '/SOIWEATHER/',
+    build: {
+        outDir: 'dist',
+        assetsDir: 'assets',
+        rollupOptions: {
+            output: {
+                manualChunks: undefined
+            }
+        }
+    }
 });
