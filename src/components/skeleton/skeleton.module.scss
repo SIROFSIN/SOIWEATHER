@@ -1,0 +1,205 @@
+.weatherContainer {
+    @apply p-4;
+}
+
+.skeleton {
+    @apply bg-gray-700 rounded-lg;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.header {
+    @apply flex justify-between items-center mb-8;
+
+    .button {
+        @apply w-10 h-10 rounded-full;
+    }
+
+    .title {
+        @apply w-24 h-8;
+    }
+}
+
+.mainContent {
+    @apply flex flex-col items-center mb-8;
+
+    .weatherIcon {
+        @apply w-32 h-32 mb-4;
+    }
+
+    .temperature {
+        @apply flex items-start mb-4;
+
+        .value {
+            @apply w-24 h-12;
+        }
+
+        .unit {
+            @apply w-8 h-8 ml-2;
+        }
+    }
+
+    .location {
+        @apply w-48 h-6 mb-2;
+    }
+
+    .description {
+        @apply w-32 h-6;
+    }
+}
+
+.weatherDetails {
+    @apply grid grid-cols-3 gap-4 mb-8;
+
+    .detailItem {
+        @apply flex flex-col items-center;
+
+        .icon {
+            @apply w-8 h-8 mb-2;
+        }
+
+        .label {
+            @apply w-16 h-4 mb-1;
+        }
+
+        .value {
+            @apply w-20 h-4;
+        }
+    }
+}
+
+.hourlyForecast {
+    @apply mb-8;
+
+    .scrollContainer {
+        @apply flex gap-4 overflow-x-auto pb-4;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item {
+            @apply w-16 h-24 flex-shrink-0;
+        }
+    }
+}
+
+.dailyForecast {
+    @apply space-y-4;
+
+    .item {
+        @apply w-full h-16 rounded-lg;
+    }
+}
+
+.div3 {
+    @apply relative;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1rem;
+
+    .weatherIcon {
+        @apply absolute inset-0;
+    }
+}
+
+.temperature {
+    @apply flex items-start mb-4;
+
+    .value {
+        @apply w-24 h-12;
+    }
+
+    .unit {
+        @apply w-8 h-8 ml-2;
+    }
+}
+
+.location {
+    @apply w-48 h-6 mb-2;
+}
+
+.description {
+    @apply w-32 h-6;
+}
+
+.detailItem {
+    @apply flex flex-col items-center;
+
+    .icon {
+        @apply w-8 h-8 mb-2;
+    }
+
+    .label {
+        @apply w-16 h-4 mb-1;
+    }
+
+    .value {
+        @apply w-20 h-4;
+    }
+}
+
+.hourlyForecast {
+    @apply mt-8;
+
+    .scrollContainer {
+        @apply flex gap-4 overflow-x-auto pb-4;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item {
+            @apply w-16 h-24 flex-shrink-0;
+        }
+    }
+}
+
+.weeklyContainer {
+    @apply space-y-4 mt-4;
+}
+
+.weeklyTitle {
+    @apply text-lg font-semibold mb-4;
+}
+
+.weeklyDate {
+    @apply w-24 h-6;
+}
+
+.weeklyIcon {
+    @apply w-8 h-8;
+}
+
+.weeklyTemp {
+    @apply w-20 h-6;
+}

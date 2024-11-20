@@ -1,0 +1,184 @@
+.main-weather-info {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+
+    &[data-weather='clear-sky'] {
+        background: linear-gradient(135deg, #87ceeb, #1e90ff);
+        box-shadow: 0 8px 32px rgba(30, 144, 255, 0.2);
+    }
+
+    &[data-weather='few-clouds'] {
+        background: linear-gradient(135deg, #b0c4de, #4682b4);
+        box-shadow: 0 8px 32px rgba(70, 130, 180, 0.2);
+    }
+
+    &[data-weather='scattered-clouds'] {
+        background: linear-gradient(135deg, #a9a9a9, #696969);
+        box-shadow: 0 8px 32px rgba(105, 105, 105, 1);
+        border-radius: 30px;
+        margin: 0px;
+    }
+
+    &[data-weather='broken-clouds'] {
+        background: linear-gradient(135deg, #778899, #2f4f4f);
+        box-shadow: 0 8px 32px rgba(47, 79, 79, 1);
+    }
+
+    &[data-weather='shower-rain'] {
+        background: linear-gradient(135deg, #4682b4, #000080);
+        box-shadow: 0 8px 32px rgba(0, 0, 128, 1);
+    }
+
+    &[data-weather='rain'] {
+        background: linear-gradient(135deg, #4169e1, #000080);
+        box-shadow: 0 8px 32px rgba(0, 0, 128, 1);
+    }
+
+    &[data-weather='thunderstorm'] {
+        background: linear-gradient(135deg, #483d8b, #191970);
+        box-shadow: 0 8px 32px rgba(25, 25, 112, 1);
+    }
+
+    &[data-weather='snow'] {
+        background: linear-gradient(135deg, #e0ffff, #b0e0e6);
+        box-shadow: 0 8px 32px rgba(176, 224, 230, 1);
+    }
+
+    &[data-weather='mist'] {
+        background: linear-gradient(135deg, #d3d3d3, #808080);
+        box-shadow: 0 8px 32px rgba(128, 128, 128, 1);
+    }
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    min-height: 3rem;
+    overflow: hidden;
+}
+
+.searchContainer {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    width: calc(100% - 6rem);
+    height: 100%;
+    transform: translate(100%, -50%);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 0 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+
+    &.visible {
+        transform: translate(0, -50%);
+        opacity: 1;
+        pointer-events: auto;
+
+        .searchInput {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+.searchInput {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0.95rem 0;
+    font-size: 1.125rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease-in-out;
+    transition-delay: 0.1s;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:focus {
+        outline: none;
+        border-bottom-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.div1 {
+    background-color: transparent;
+    padding-top: 3%;
+    border-radius: 40px 40px 0px 0px;
+    background-image: linear-gradient(180deg, #010a19 0%, #010712 100%);
+    background-position: 0% 0%;
+    background-size: auto auto;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+.div2 {
+    margin-top: 100px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.div3 {
+    position: relative;
+    top: 30px;
+}
+.div4 {
+    background: repeat padding-box border-box 0% 0% / auto auto scroll linear-gradient(180deg, #010a19 0%, #020f24 100%);
+    color: #fff;
+    min-height: 100vh;
+    padding-bottom: 0rem;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.hourlyForecast {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container {
+    @apply max-w-4xl mx-auto px-4 py-8;
+}
+
+.mainWeatherInfo {
+    @apply mt-8;
+}
+
+.main1 {
+    @apply mt-8;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div5 {
+    max-width: 37rem;
+}

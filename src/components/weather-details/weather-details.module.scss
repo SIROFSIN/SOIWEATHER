@@ -1,0 +1,23 @@
+
+
+.div1 {
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+    :global(.font-bold).p1,
+    :global(.font-bold).p2,
+    :global(.font-bold).p3 {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .div1 {
+        :global(.font-bold).p1,
+        :global(.font-bold).p2,
+        :global(.font-bold).p3 {
+            font-size: 20px;
+        }
+    }
+}
