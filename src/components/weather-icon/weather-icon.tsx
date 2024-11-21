@@ -51,6 +51,9 @@ export const WeatherIcon = ({ className, code }: WeatherIconProps) => {
                 src={icon.src}
                 alt={icon.alt}
                 className={className}
+                loading="lazy"
+                decoding="async"
+                fetchPriority="high"
                 style={{ objectFit: 'contain', position: 'relative', width: '250px', margin: '0px' }}
             />
         </div>
