@@ -46,16 +46,21 @@ export const HomePage = ({ className, onSettingsChange, theme }: HomePageProps) 
                 setLoading(true);
                 setError(null);
 
-                const response = await axios.get('http://ipwho.is/');
+                const response = await axios.get('https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address', {
+                    params: { ip: '' },
+                    headers: {
+                        'Authorization': 'Token 9749fef3c0e233bd020197e9b28827fb3b6ab2eb'
+                    }
+                });
                 const data = response.data;
 
-                if (!data.success) {
+                if (!data.location) {
                     throw new Error('Не удалось определить город по IP');
                 }
 
-                setCity(data.city);
-                setCountry(data.country);
-                await fetchWeather(data.city);
+                setCity(data.location.data.city || 'Москва');
+                setCountry(data.location.data.country || 'Россия');
+                await fetchWeather(data.location.data.city || 'Москва');
             } catch (error) {
                 console.error('Ошибка при получении местоположения:', error);
                 setError('Не удалось определить ваше местоположение. Используем город по умолчанию.');
@@ -75,16 +80,21 @@ export const HomePage = ({ className, onSettingsChange, theme }: HomePageProps) 
                 // Добавляем искусственную задержку в 3 секунды
                 await new Promise((resolve) => setTimeout(resolve, 3000));
 
-                const response = await axios.get('http://ipwho.is/');
+                const response = await axios.get('https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address', {
+                    params: { ip: '' },
+                    headers: {
+                        'Authorization': 'Token 9749fef3c0e233bd020197e9b28827fb3b6ab2eb'
+                    }
+                });
                 const data = response.data;
 
-                if (!data.success) {
+                if (!data.location) {
                     throw new Error('Не удалось определить город по IP');
                 }
 
-                setCity(data.city);
-                setCountry(data.country);
-                await fetchWeather(data.city);
+                setCity(data.location.data.city || 'Москва');
+                setCountry(data.location.data.country || 'Россия');
+                await fetchWeather(data.location.data.city || 'Москва');
             } catch (err) {
                 setError(err instanceof Error ? err.message : 'Произошла ошибка при загрузке данных');
             } finally {
